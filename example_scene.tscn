@@ -1,0 +1,45 @@
+[gd_scene load_steps=11 format=3 uid="uid://dex6bn7ygsb21"]
+
+[ext_resource type="Script" uid="uid://ce6ub3jvpvcvx" path="res://example_scene.gd" id="1_cstol"]
+[ext_resource type="Resource" uid="uid://dwf50dsuke4ig" path="res://buildables_database/SDBuildables_database.tres" id="2_vqley"]
+[ext_resource type="Script" uid="uid://b53m12s3kdjky" path="res://buildables_database/SDBuildable.gd" id="3_71y1r"]
+[ext_resource type="Script" uid="uid://bemuhnhjq5sd" path="res://buildables_database/SDBuildableData.gd" id="4_cxdiq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1jjb4"]
+
+[sub_resource type="Resource" id="Resource_m0kt6"]
+script = ExtResource("4_cxdiq")
+shape = SubResource("CircleShape2D_1jjb4")
+color = Color(1, 0, 0, 1)
+_id = "RedCircle"
+_type = "SDBuildableData"
+metadata/_custom_type_script = "uid://bemuhnhjq5sd"
+
+[sub_resource type="Resource" id="Resource_jnonn"]
+script = ExtResource("3_71y1r")
+db = ExtResource("2_vqley")
+key = "RedCircle"
+value = SubResource("Resource_m0kt6")
+metadata/_custom_type_script = "uid://b53m12s3kdjky"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5i24k"]
+
+[sub_resource type="Resource" id="Resource_dn4gh"]
+script = ExtResource("4_cxdiq")
+shape = SubResource("RectangleShape2D_5i24k")
+color = Color(0, 0, 0, 1)
+_id = "BlackRect"
+_type = "SDBuildableData"
+metadata/_custom_type_script = "uid://bemuhnhjq5sd"
+
+[sub_resource type="Resource" id="Resource_a6hqe"]
+script = ExtResource("3_71y1r")
+db = ExtResource("2_vqley")
+key = "BlackRect"
+value = SubResource("Resource_dn4gh")
+metadata/_custom_type_script = "uid://b53m12s3kdjky"
+
+[node name="Node" type="Node"]
+script = ExtResource("1_cstol")
+circle_buildable = SubResource("Resource_jnonn")
+rectangle_buildable = SubResource("Resource_a6hqe")

@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Database" load_steps=8 format=3 uid="uid://dwf50dsuke4ig"]
+
+[ext_resource type="Script" uid="uid://cqvg4rwkblckm" path="res://Database/StructuredData.gd" id="1_krja0"]
+[ext_resource type="Script" uid="uid://bemuhnhjq5sd" path="res://buildables_database/SDBuildableData.gd" id="2_u51mc"]
+[ext_resource type="Script" uid="uid://4fudsf5gjjm8" path="res://Database/Database.gd" id="3_u51mc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1jjb4"]
+
+[sub_resource type="Resource" id="Resource_m0kt6"]
+script = ExtResource("2_u51mc")
+shape = SubResource("CircleShape2D_1jjb4")
+color = Color(1, 0, 0, 1)
+_id = "RedCircle"
+_type = "SDBuildableData"
+metadata/_custom_type_script = "uid://bemuhnhjq5sd"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5i24k"]
+
+[sub_resource type="Resource" id="Resource_dn4gh"]
+script = ExtResource("2_u51mc")
+shape = SubResource("RectangleShape2D_5i24k")
+color = Color(0, 0, 0, 1)
+_id = "BlackRect"
+_type = "SDBuildableData"
+metadata/_custom_type_script = "uid://bemuhnhjq5sd"
+
+[resource]
+script = ExtResource("3_u51mc")
+_data = Array[ExtResource("1_krja0")]([SubResource("Resource_m0kt6"), SubResource("Resource_dn4gh")])
+metadata/_custom_type_script = "uid://4fudsf5gjjm8"
