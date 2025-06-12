@@ -6,7 +6,7 @@ __The goal of this project is twofold:__
 DO THIS!
 - open example_scene.tscn in the godot editor to see an example of the database driven dropdown menu in the inscpector.
 - view and edit example_scene.gd to add more properties
-- try to create yout own demo scene
+- try to create your own demo scene
 
 ## To use the Database class:
   - make a new directory
