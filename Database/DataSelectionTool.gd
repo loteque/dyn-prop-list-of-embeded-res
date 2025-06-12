@@ -15,7 +15,7 @@ var _data: Dictionary
     set(d):
         db = d
         if db:
-            _data = db.compile_data()
+            _data = db.get_data_as_dictionary()
         notify_property_list_changed()
 
 
@@ -31,7 +31,6 @@ func _get_property_list():
     var properties = []
     
     if db:
-        print(_data.get(key))
         _hint_string = compile_hint_string_from_keys(_data.keys())
     else:
         properties.append({})
