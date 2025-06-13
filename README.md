@@ -1,49 +1,77 @@
-__The goal of this project is twofold:__
+# loteque.database
+> __What is this?__
 
-1. start working out a data access pattern and general data storage model for Lumina.
-2. validate that a dynamic dropdown can be added to the editor property list and that this list can be made up of subresources from a tres file.
+__A simple database class for godot engine 4.x__
 
-DO THIS!
-- open example_scene.tscn in the godot editor to see an example of the database driven dropdown menu in the inscpector.
-- view and edit example_scene.gd to add more properties
-- try to create your own demo scene
+The database has 2 critical parts and 1 optional part:
 
-## To use the Database class:
-  - make a new directory
-    - call it something like: mycoolinstances_database
-  - rightclick in the godot FileSystemPanel on the new directory
-  - Select `New Resource`
-  - search `Database` and click `Create`
-    - give it a name that matches the directory mycoolinstance_database
-  - we need extensions of DataSelectionTool and StructuredData
-### DataSelectionTool
-  This is the class that takes care of generating the editor inspector panel properties
-  - create a class that extends the DataSelectionTool
-  - create a new file called something like CoolClass.gd
-    ```python
-    extends DataSelectionTool
-    class_name CoolClass
-    ```
-  - that's it, save the file as CoolClass.gd
-  - you _can_ add functionality if you __NEED__ it.
-  - (you probably don't need it)
-### StructuredData
-  This is the class that holds the properties of you new class
+__Critical__:
+- the database itself
+- the data class
+
+__Optional__:
+- the database adapter
+
+## How to use the Database:
+
+_What we will do from a high level:_
+- add instances of the data class to the database
+  1. create your own data class
+  2. create your own database class
+  3. create your own data selection tool class (optional)
+  4. create data in the database
+
+### SDClass
+- class_name: __SDClass__
+- path: _addons/loteque.database/Database/SDClass.gd_
+- desc: This is the class that holds the properties of you new class
+- usage: _extend this class to constuct your own data class_
+  - First create a dir like mycoolinstances_database (we will work in this dir)
   - create a class that extends StructuredData:
-  - create a new file called something like CoolClassData.gd
+  - create a new file called something like `mycoolinstances_database/CoolClassData.gd`
   - give it some __TYPED__ properties.
+    - example: _CoolClassData.gd
     ```python
-    extends StructuredData
+    extends SDDData
     class_name CoolClassData
 
     @export var cool_shape: Shape2D
     @export var cool_color: Color
-
     ```
   - that's it, save the file
   - you can add functionality to the class if you need it
   - ..._buuut_ it is really just meant to hold properties
-### You can now edit and update your new database
+### SDDatabase
+- class_name: __SDDatabase__
+- path: _addons/loteque.database/Database/SDDatabase.gd_
+- desc: This is the class that holds all of your instances of your data class
+- usage: _generate database resource file_
+  - rightclick in the godot FileSystemPanel on the `mycoolinstances_database` directory
+  - Select `New Resource`
+  - search `SDDatabase` and click `Create`
+    - give it a name that matches the directory `mycoolinstance_database`
+### SDAdapter
+  - class_name: __SDAdapter__
+  - path: _addons/loteque.database/Database/SDAdapter.gd_
+  - desc: This is the class that helps manipulate your database with instances of your data class
+  - usage: _extend this class to constuct your own adapter class_
+    - create a class that extends SDAdapter
+    - create a new file called something like `CoolClass.gd`
+      ```python
+      extends SDAdapter
+      class_name CoolClass
+
+      const DATABASE_PATH = "res://mycoolinstances_database/mycoolinstances_database.tres"
+
+      func init(initdb: SDDatabase = load(DATABASE_PATH)) -> void:
+        db = initdb
+
+      ```
+    - that's it, save the file as CoolClass.gd
+    - you _can_ add functionality if you __NEED__ it.
+    - (you probably don't need it)
+  
+__You can now update your new database:__
   - find your new database in the FileSystem panel in godot editor
   - it should be called something like mynewinstances_database (whatever you named it)
   - double click on it.
@@ -52,4 +80,4 @@ DO THIS!
   - once you have added sufficent entries into the database you can make a new scene and add data from the database to that scene
     - look at example_scene.tscn and example_scene.gd for a demonstration on how to do this.
 
-Feel free to open an issue on this repo if you have questions or concerns.
+_Feel free to open an issue at https://github.com/Loteque/loteque.database/issues if you have questions or concerns._
