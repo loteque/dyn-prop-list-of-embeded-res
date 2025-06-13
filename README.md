@@ -1,4 +1,4 @@
-# loteque.database
+# loteque.database (v0.5)
 > __What is this?__
 
 __A simple database class for godot engine 4.x__
