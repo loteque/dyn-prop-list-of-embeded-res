@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="SDDatabase" load_steps=7 format=3 uid="uid://bg0ygrglv025"]
+
+[ext_resource type="Script" uid="uid://copm3seagp7t4" path="res://addons/loteque.database/Database/SDClass.gd" id="1_joq5t"]
+[ext_resource type="Script" uid="uid://bpql4uj16kn83" path="res://demo/character_database/Character_data.gd" id="2_rat5g"]
+[ext_resource type="Script" uid="uid://dksxcus8my2tj" path="res://addons/loteque.database/Database/SDDatabase.gd" id="2_yrqbi"]
+
+[sub_resource type="Resource" id="Resource_bvk7c"]
+script = ExtResource("2_rat5g")
+name = "Jill"
+_id = "CatCharacter1"
+_type = "CharacterData"
+metadata/_custom_type_script = "uid://bpql4uj16kn83"
+
+[sub_resource type="Resource" id="Resource_8k041"]
+script = ExtResource("2_rat5g")
+name = "Chuck"
+_id = "CatCharacter2"
+_type = "CharacterData"
+metadata/_custom_type_script = "uid://bpql4uj16kn83"
+
+[sub_resource type="Resource" id="Resource_f0e7h"]
+script = ExtResource("2_rat5g")
+name = "Ral"
+_id = "DogCharacter1"
+_type = "CharacterData"
+metadata/_custom_type_script = "uid://bpql4uj16kn83"
+
+[resource]
+script = ExtResource("2_yrqbi")
+_data = Array[ExtResource("1_joq5t")]([SubResource("Resource_bvk7c"), SubResource("Resource_8k041"), SubResource("Resource_f0e7h")])
+metadata/_custom_type_script = "uid://dksxcus8my2tj"

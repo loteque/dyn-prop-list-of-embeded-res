@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://3183osepv20w"]
+
+[ext_resource type="Script" uid="uid://v4bolodboft" path="res://demo/character_screen.gd" id="1_5xud5"]
+[ext_resource type="Script" uid="uid://bv6vbacgyg5oj" path="res://demo/character_database/Character_adapter.gd" id="2_baqyi"]
+
+[sub_resource type="Resource" id="Resource_5xud5"]
+script = ExtResource("2_baqyi")
+key = "CatCharacter1"
+name = "Jill"
+_id = "CatCharacter1"
+_type = "CharacterData"
+metadata/_custom_type_script = "uid://bv6vbacgyg5oj"
+
+[sub_resource type="Resource" id="Resource_baqyi"]
+script = ExtResource("2_baqyi")
+key = "CatCharacter2"
+name = "Chuck"
+_id = "CatCharacter2"
+_type = "CharacterData"
+metadata/_custom_type_script = "uid://bv6vbacgyg5oj"
+
+[sub_resource type="Resource" id="Resource_3tpay"]
+script = ExtResource("2_baqyi")
+key = "DogCharacter1"
+name = "Ral"
+_id = "DogCharacter1"
+_type = "CharacterData"
+metadata/_custom_type_script = "uid://bv6vbacgyg5oj"
+
+[node name="CharacterScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_5xud5")
+first_character = SubResource("Resource_5xud5")
+second_character = SubResource("Resource_baqyi")
+third_character = SubResource("Resource_3tpay")
